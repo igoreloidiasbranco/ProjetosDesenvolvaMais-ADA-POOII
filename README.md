@@ -1,5 +1,14 @@
 # Projeto Ada Commerce - E-Commerce
 
+Projeto final do módulo Programação Orientada a Objetos II
+
+## Grupo 3: 
+- Bruno Madureira
+- Claudia Bispo
+- Igor Eloi
+
+# Sistema de E-Commerce 
+
 ## Descrição
 A **Ada Tech** pretende realizar a venda de produtos através de um **E-Commerce** e, para isso, nos contratou para desenvolver todo o fluxo necessário. O sistema permitirá a gestão de clientes, produtos e vendas seguindo regras de negócio bem definidas.
 
