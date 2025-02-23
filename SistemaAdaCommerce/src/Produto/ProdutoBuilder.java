@@ -1,24 +1,27 @@
 package Produto;
 
-import java.util.Scanner;
+import java.util.UUID;
 
-public abstract class ProdutoBuilder {
+public class ProdutoBuilder {
 
-    public static Produto criarProduto() {
-        Scanner scanner = new Scanner(System.in);
-        double preco;
+    private UUID id;
+    private String nome;
+    private double preco;
 
-        System.out.print("Digite o nome do produto: ");
-        String nome = scanner.nextLine();
+    public ProdutoBuilder comNome(String nome) {
+        this.nome = nome;
+        return this;
+    }
 
-        System.out.print("Digite o preço do produto: ");
-        while (!scanner.hasNextDouble()) {
+    public ProdutoBuilder comPreco(double preco) {
+        this.preco = preco;
+        return this;
+    }
 
-            System.out.print("Digite um valor de preço válido: ");
-            scanner.next();
+    public Produto construir() {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome não pode ser nulo ou vazio.");
         }
-
-        preco = scanner.nextDouble();
 
         return new Produto(nome, preco);
     }
