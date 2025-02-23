@@ -1,3 +1,5 @@
+package Cliente;
+
 import java.util.UUID;
 
 public class Cliente {
@@ -8,12 +10,6 @@ public class Cliente {
 
     public Cliente(String nome, String documento) {
         this.id = UUID.randomUUID();
-        this.nome = nome;
-        this.documento = documento;
-    }
-
-    public Cliente(UUID idCliente, String nome, String documento) {
-        this.id = idCliente;
         this.nome = nome;
         this.documento = documento;
     }
