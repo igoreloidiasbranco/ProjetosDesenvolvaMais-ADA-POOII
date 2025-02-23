@@ -1,3 +1,10 @@
+import Cliente.Cliente;
+import Cliente.GerenciamentoCliente;
+import Cliente.ClienteBuilder;
+import Produto.Produto;
+import Produto.ProdutoBuilder;
+import Produto.GerenciamentoProduto;
+import Utils.ValidacaoUUID;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -8,7 +15,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String operacao;
         String respostaUsuario;
-        UUID uuid = null;
+        UUID uuid;
+        GerenciamentoCliente gerenciamentoCliente = new GerenciamentoCliente();
 
         System.out.println("----------- Ada E-Commerce -------------");
         System.out.println();
@@ -35,37 +43,30 @@ public class Main {
             switch (operacao) {
                 case "1":
                     Cliente cliente = ClienteBuilder.criarCliente();
-                    GerenciamentoCliente.cadastrarCliente(cliente);
+                    gerenciamentoCliente.cadastrarCliente(cliente);
                     break;
 
                 case "2":
-                    GerenciamentoCliente.listarCliente();
+                    gerenciamentoCliente.listarCliente();
                     break;
 
                 case "3":
-                    System.out.print("Digite o id do cliente: ");
-                    while (uuid == null) {
-                        String input = scanner.next();
-                        try {
-                            uuid = UUID.fromString(input);
-                        } catch (IllegalArgumentException e) {
-                            System.out.print("Entrada inválida. Digite um UUID válido: ");
-                        }
-                    }
-
-                    GerenciamentoCliente.atualizarCliente(uuid);
+                    uuid = ValidacaoUUID.validadorUUID();
+                    gerenciamentoCliente.atualizarCliente(uuid);
                     break;
 
                 case "4":
-                    //implementar cadastro de produto
+                    Produto produto = ProdutoBuilder.criarProduto();
+                    GerenciamentoProduto.cadastrarProduto(produto);
                     break;
 
                 case "5":
-                    //implementar listar produtos
+                    GerenciamentoProduto.listarProduto();
                     break;
 
                 case "6":
-                    //implementar atualizar produto
+                    uuid = ValidacaoUUID.validadorUUID();
+                    GerenciamentoProduto.atualizarProduto(uuid);
                     break;
 
                 default:
@@ -77,14 +78,14 @@ public class Main {
             System.out.println("Deseja realizar uma nova operação?");
             do {
 
-                System.out.print("Digite (S) para continuar ou (N) para sair: ");
+                System.out.print("Digite (sim) para continuar ou (não) para encerrar: ");
 
 
-                respostaUsuario = scanner.nextLine().toUpperCase();
-            } while (!(respostaUsuario.equals("S") || (respostaUsuario.equals("N"))));
+                respostaUsuario = scanner.nextLine().toLowerCase();
+            } while (!(respostaUsuario.equals("sim") || (respostaUsuario.equals("não"))));
 
 
-        } while (respostaUsuario.equals("S"));
+        } while (respostaUsuario.equals("sim"));
 
     }
 
