@@ -1,28 +1,30 @@
+package Cliente;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class GerenciamentoCliente {
+public class GerenciamentoCliente {
 
 
-    private static List<Cliente> listaClientes = new ArrayList<>();
+    private List<Cliente> listaClientes = new ArrayList<>();
 
-    public static void cadastrarCliente(Cliente cliente) {
+    public void cadastrarCliente(Cliente cliente) {
         listaClientes.add(cliente);
         System.out.println("Cliente cadastrado");
     }
 
-    public static void listarCliente() {
+    public void listarCliente() {
 
         for (Cliente cliente : listaClientes) {
-            System.out.println("Id do Cliente : " + cliente.getId());
+            System.out.println("Id do Cliente: " + cliente.getId());
             System.out.println("Nome: " + cliente.getNome());
             System.out.println("Documento: " + cliente.getDocumento());
             System.out.println();
         }
     }
 
-    public static void atualizarCliente (UUID idCliente) {
+    public void atualizarCliente (UUID idCliente) {
         for (Cliente cliente : listaClientes) {
             if (cliente.getId().equals(idCliente)) {
                 listaClientes.remove(cliente);
