@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void   main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
         GerenciamentoCliente gerenciamentoCliente = new GerenciamentoCliente();
