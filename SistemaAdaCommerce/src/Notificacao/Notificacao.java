@@ -1,4 +1,4 @@
-package Notificação;
+package Notificacao;
 
 public class Notificacao {
 
