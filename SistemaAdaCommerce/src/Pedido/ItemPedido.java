@@ -1,6 +1,7 @@
 package Pedido;
 
 
+import Produto.Produto;
 
 class ItemPedido {
     private Produto produto;

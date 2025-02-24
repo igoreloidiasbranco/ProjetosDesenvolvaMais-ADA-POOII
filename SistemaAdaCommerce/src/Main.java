@@ -30,6 +30,7 @@ public class Main {
             System.out.println("(4) - Cadastrar Produto");
             System.out.println("(5) - Listar Produtos");
             System.out.println("(6) - Atualizar Produto");
+            System.out.println("(7) - Realizar Pedido");
             // implementar mais funcionalidades conforme for evoluindo o sistema
 
             System.out.print("Digite a operação desejada: ");

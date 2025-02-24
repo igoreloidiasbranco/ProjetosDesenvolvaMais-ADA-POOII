@@ -24,7 +24,6 @@ import java.util.UUID;
             this.id = UUID.randomUUID();
             this.itens = new ArrayList<>();
             this.dataCriacao = LocalDate.now();
-            Object StatusPedido;
             this.status = StatusPedido.ABERTO;
             this.notificacao = new Notificacao();
         }
