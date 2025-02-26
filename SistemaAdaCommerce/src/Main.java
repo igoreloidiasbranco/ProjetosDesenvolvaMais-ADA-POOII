@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class Main {
 
-    public static void   main(String[] args) {
+    public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
         GerenciamentoCliente gerenciamentoCliente = new GerenciamentoCliente();
@@ -30,7 +30,6 @@ public class Main {
             System.out.println("(4) - Cadastrar Produto");
             System.out.println("(5) - Listar Produtos");
             System.out.println("(6) - Atualizar Produto");
-            System.out.println("(7) - Realizar Pedido");
             // implementar mais funcionalidades conforme for evoluindo o sistema
 
             System.out.print("Digite a operação desejada: ");
