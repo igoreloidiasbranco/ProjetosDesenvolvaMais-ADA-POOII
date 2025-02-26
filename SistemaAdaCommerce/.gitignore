@@ -1,9 +1,12 @@
+
 ### IntelliJ IDEA ###
-out/
+../out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.idea/
-.idea/misc.xml
+SistemaAdaCommerce/.idea/
+
+*.iml
+modules.xml
 
 ### Eclipse ###
 .apt_generated

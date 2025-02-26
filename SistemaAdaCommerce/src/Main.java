@@ -24,6 +24,7 @@ public class Main {
 
         do {
             System.out.println("Operações do Sistema:");
+            //System.out.println("(1) - ");
             System.out.println("(1) - Cadastrar Cliente");
             System.out.println("(2) - Listar Clientes");
             System.out.println("(3) - Atualizar Cliente");
