@@ -5,8 +5,11 @@
 !**/src/test/**/out/
 SistemaAdaCommerce/.idea/
 
-*.iml
-modules.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
 
 ### Eclipse ###
 .apt_generated
