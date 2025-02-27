@@ -27,6 +27,7 @@ public class Main {
             System.out.println("(1) - Gerenciar Cliente ");
             System.out.println("(2) - Gerenciar Produto");
 
+
             System.out.println("(3) - Gerenciar Vendas");
 
             System.out.print("Digite a operação desejada: ");
