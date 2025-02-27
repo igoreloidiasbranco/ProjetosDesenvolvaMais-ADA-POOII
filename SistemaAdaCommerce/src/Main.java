@@ -26,17 +26,17 @@ public class Main {
             System.out.println("Operações do Sistema:");
             System.out.println("(1) - Gerenciar Cliente ");
             System.out.println("(2) - Gerenciar Produto");
-
-
             System.out.println("(3) - Gerenciar Vendas");
 
             System.out.print("Digite a operação desejada: ");
-            sistemaPrincipal = scanner.nextLine();
 
-            while (sistemaPrincipal != 1 || 2 || 3) {
-                System.out.print("Digite um número válido: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Digite um número válido");
                 scanner.next();
             }
+
+            sistemaPrincipal = scanner.next();
+            scanner.nextLine();
 
             switch (sistemaPrincipal) {
                 case "1":
@@ -44,11 +44,14 @@ public class Main {
                     System.out.println("(2) - Listar Clientes");
                     System.out.println("(3) - Atualizar Cliente");
                     System.out.print("Digite a operação desejada: ");
-                    String sistemaCliente = scanner.nextLine();
-                    while (sistemaCliente != 1 || 2 || 3) {
-                        System.out.print("Digite um número válido: ");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("Digite um número válido");
                         scanner.next();
                     }
+
+                    String sistemaCliente = scanner.next();
+                    scanner.nextLine();
+
                     switch (sistemaCliente) {
                         case "1":
                             System.out.print("Nome do Cliente: ");
@@ -76,17 +79,25 @@ public class Main {
 
                             gerenciamentoCliente.atualizarCliente(uuidCliente, novoNomeCliente, novoDocumentoCliente);
                             break;
+
+                        default:
+                            System.out.println("Digite uma operação válida");
+                            break;
                     }
 
                 case "2":
                     System.out.println("(1) - Cadastrar Produto");
                     System.out.println("(2) - Listar Produtos");
                     System.out.println("(3) - Atualizar Produto");
-                    String sistemaProduto = scanner.nextLine();
-                    while (sistemaProduto < 1 || sistemaProduto > 3 ) {
-                        System.out.print("Digite um número válido: ");
+                    System.out.print("Digite a operação desejada: ");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("Digite um número válido");
                         scanner.next();
                     }
+
+                    String sistemaProduto = scanner.next();
+                    scanner.nextLine();
+
                     switch (sistemaProduto) {
                         case "1":
                             System.out.print("Nome do Produto: ");
@@ -102,9 +113,11 @@ public class Main {
 
                             gerenciamentoProduto.cadastrarProduto(produto);
                             break;
+
                         case "2":
                             gerenciamentoProduto.listarProdutos();
                             break;
+
                         case "3":
                             System.out.print("Digite o ID do Produto: ");
                             UUID uuidProduto = ValidacaoUUID.validadorUUID();
@@ -115,6 +128,7 @@ public class Main {
                             scanner.nextLine();
                             gerenciamentoProduto.atualizarProduto(uuidProduto, novoNomeProduto, novoPrecoProduto);
                             break;
+
                         default:
                             System.out.println("Digite uma operação válida");
                             break;
@@ -125,44 +139,55 @@ public class Main {
                     //Criar uma nova venda significa escolher um cliente para uma venda!
                     System.out.println("(2) - Listar Vendas");
                     System.out.println("(3) - Gerenciar Vendas");
-                    String sistemaVenda = scanner.nextLine();
-                    while (sistemaVenda < 1 || sistemaVenda > 3 ) {
-                        System.out.print("Digite um número válido: ");
+
+                    System.out.print("Digite a operação desejada: ");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("Digite um número válido");
                         scanner.next();
                     }
-                    switch (sistemaVenda) {
-                        case '1':
-                            System.out.print("Qual o Id do cliente que será efetuada a venda: ");
-                        case '2':
-                            //TODO Listar todas as vendas
-                            break
-                        case '3':
-                            System.out.println("Qual o Id da venda que gostaria de gerenciar: ");
-                           //TODO Verificar ID de venda para ver se existe
-                            String vendaID = scanner.nextLine();
 
-                            System.out.println("Operações de venda:")
+                    String sistemaVenda = scanner.next();
+                    scanner.nextLine();
+
+                    switch (sistemaVenda) {
+                        case "1":
+                            System.out.print("Qual o Id do cliente que será efetuada a venda: ");
+                        case "2":
+                            //TODO Listar todas as vendas
+                            break;
+                        case "3":
+                            System.out.println("Qual o Id da venda que gostaria de gerenciar: ");
+                            //TODO Verificar ID de venda para ver se existe
+                            String vendaID = scanner.next();
+                            scanner.nextLine();
+
+                            System.out.println("Operações de venda:");
                             System.out.println("(1) - Adicionar Produto");
                             //com quantidade e preço
                             System.out.println("(2) - Remover Produto");
                             System.out.println("(3) - Alterar quantidade do produto");
                             System.out.println("(4) - Realizar Pagamento");
                             System.out.println("(5) - Realizar Entrega");
-                            String sistemaOperacaoVenda = scanner.nextLine();
-                            while (sistemaOperacaoVenda < 1 || sistemaOperacaoVenda > 5) {
-                                System.out.print("Digite um número válido: ");
+
+                            System.out.print("Digite a operação desejada: ");
+                            while (!scanner.hasNextInt()) {
+                                System.out.println("Digite um número válido");
                                 scanner.next();
                             }
-                            switch (sistemaOperacaoVenda){
-                                case '1':
+
+                            String sistemaOperacaoVenda = scanner.next();
+                            scanner.nextLine();
+
+                            switch (sistemaOperacaoVenda) {
+                                case "1":
                                     //adicionar com quantidade e preço
-                                case '2':
+                                case "2":
                                     //remover
-                                case '3':
+                                case "3":
                                     //alterar quantidade
-                                case '4':
+                                case "4":
                                     //mudar status de pedido
-                                case '5':
+                                case "5":
                                     //mudar status de pedido
                                 default:
                                     System.out.println("Digite uma operação válida");
