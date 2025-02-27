@@ -17,7 +17,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         GerenciamentoCliente gerenciamentoCliente = new GerenciamentoCliente();
         GerenciamentoProduto gerenciamentoProduto = new GerenciamentoProduto();
-        int sistemaPrincipal;
+        String sistemaPrincipal;
         String respostaUsuario;
 
         System.out.println("----------- Ada E-Commerce -------------\n");
@@ -26,11 +26,14 @@ public class Main {
             System.out.println("Operações do Sistema:");
             System.out.println("(1) - Gerenciar Cliente ");
             System.out.println("(2) - Gerenciar Produto");
+
+
             System.out.println("(3) - Gerenciar Vendas");
+
             System.out.print("Digite a operação desejada: ");
             sistemaPrincipal = scanner.nextLine();
 
-            while (sistemaPrincipal < 1 || sistemaPrincipal > 3) {
+            while (sistemaPrincipal != 1 || 2 || 3) {
                 System.out.print("Digite um número válido: ");
                 scanner.next();
             }
@@ -41,7 +44,7 @@ public class Main {
                     System.out.println("(2) - Listar Clientes");
                     System.out.println("(3) - Atualizar Cliente");
                     System.out.print("Digite a operação desejada: ");
-                    int sistemaCliente = scanner.nextLine();
+                    String sistemaCliente = scanner.nextLine();
                     while (sistemaCliente != 1 || 2 || 3) {
                         System.out.print("Digite um número válido: ");
                         scanner.next();
@@ -79,7 +82,7 @@ public class Main {
                     System.out.println("(1) - Cadastrar Produto");
                     System.out.println("(2) - Listar Produtos");
                     System.out.println("(3) - Atualizar Produto");
-                    int sistemaProduto = scanner.nextLine();
+                    String sistemaProduto = scanner.nextLine();
                     while (sistemaProduto < 1 || sistemaProduto > 3 ) {
                         System.out.print("Digite um número válido: ");
                         scanner.next();
@@ -122,7 +125,7 @@ public class Main {
                     //Criar uma nova venda significa escolher um cliente para uma venda!
                     System.out.println("(2) - Listar Vendas");
                     System.out.println("(3) - Gerenciar Vendas");
-                    int sistemaVenda = scanner.nextLine();
+                    String sistemaVenda = scanner.nextLine();
                     while (sistemaVenda < 1 || sistemaVenda > 3 ) {
                         System.out.print("Digite um número válido: ");
                         scanner.next();
@@ -145,7 +148,7 @@ public class Main {
                             System.out.println("(3) - Alterar quantidade do produto");
                             System.out.println("(4) - Realizar Pagamento");
                             System.out.println("(5) - Realizar Entrega");
-                            int sistemaOperacaoVenda = scanner.nextLine();
+                            String sistemaOperacaoVenda = scanner.nextLine();
                             while (sistemaOperacaoVenda < 1 || sistemaOperacaoVenda > 5) {
                                 System.out.print("Digite um número válido: ");
                                 scanner.next();
