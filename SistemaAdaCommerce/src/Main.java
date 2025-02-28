@@ -35,16 +35,18 @@ public class Main {
             System.out.print("Digite a operação desejada: ");
 
             while (!scanner.hasNextInt()) {
-
                 System.out.print("Digite um número válido: ");
                 scanner.next();
+                System.out.println();
             }
 
-            operacao = scanner.nextLine();
+            operacao = scanner.next();
+            System.out.println();
 
             switch (operacao) {
                 case "1":
                     System.out.print("Nome do Cliente: ");
+                    scanner.nextLine(); // Consumir a nova linha pendente
                     String nomeCliente = scanner.nextLine();
                     System.out.print("Documento do Cliente: ");
                     String documentoCliente = scanner.nextLine();
@@ -66,6 +68,7 @@ public class Main {
                     UUID uuidCliente = ValidacaoUUID.validadorUUID();
 
                     System.out.print("Novo Nome do Cliente: ");
+                    scanner.nextLine(); // Consumir a nova linha pendente
                     String novoNomeCliente = scanner.nextLine();
                     System.out.print("Novo Documento do Cliente: ");
                     String novoDocumentoCliente = scanner.nextLine();
@@ -75,6 +78,7 @@ public class Main {
 
                 case "4":
                     System.out.print("Nome do Produto: ");
+                    scanner.nextLine(); // Consumir a nova linha pendente
                     String nomeProduto = scanner.nextLine();
                     System.out.print("Preço do Produto: ");
 
@@ -98,12 +102,17 @@ public class Main {
                     break;
 
                 case "6":
-                    System.out.print("Digite o ID do Produto: ");
+
                     UUID uuidProduto = ValidacaoUUID.validadorUUID();
 
                     System.out.print("Novo Nome do Produto: ");
+                    scanner.nextLine(); // Consumir a nova linha pendente
                     String novoNomeProduto = scanner.nextLine();
                     System.out.print("Novo Preço do Produto: ");
+                    while (!scanner.hasNextDouble()) {
+                        System.out.print("Digite um valor de preço válido: ");
+                        scanner.next();
+                    }
                     double novoPrecoProduto = scanner.nextDouble();
                     scanner.nextLine();
 
@@ -117,17 +126,11 @@ public class Main {
 
             System.out.println("Deseja realizar uma nova operação?");
             do {
-
                 System.out.print("Digite (sim) para continuar ou (não) para encerrar: ");
-
-
-                respostaUsuario = scanner.nextLine().toLowerCase();
+                respostaUsuario = scanner.next().toLowerCase();
                 System.out.println();
             } while (!(respostaUsuario.equals("sim") || (respostaUsuario.equals("não"))));
 
-
         } while (respostaUsuario.equals("sim"));
-
     }
-
 }

@@ -1,8 +1,9 @@
 ### IntelliJ IDEA ###
+.idea/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
+SistemaAdaCommerce/.idea/
 
 ### Eclipse ###
 .apt_generated
