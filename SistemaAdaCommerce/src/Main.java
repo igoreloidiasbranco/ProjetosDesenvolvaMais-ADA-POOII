@@ -30,7 +30,14 @@ public class Main {
             System.out.println("(4) - Cadastrar Produto");
             System.out.println("(5) - Listar Produtos");
             System.out.println("(6) - Atualizar Produto");
-            // implementar mais funcionalidades conforme for evoluindo o sistema
+            System.out.println("(7) - Criar Pedido");
+            System.out.println("(8) - Adicionar Item ao Pedido");
+            System.out.println("(9) - Remover Item do Pedido");
+            System.out.println("(10) - Alterar Quantidade do Item do Pedido");
+            System.out.println("(11) - Finalizar Pedido");
+            System.out.println("(12) - Pagar Pedido");
+            System.out.println("(13) - Entregar Pedido");
+
 
             System.out.print("Digite a operação desejada: ");
 
@@ -46,7 +53,7 @@ public class Main {
             switch (operacao) {
                 case "1":
                     System.out.print("Nome do Cliente: ");
-                    scanner.nextLine(); // Consumir a nova linha pendente
+                    scanner.nextLine();
                     String nomeCliente = scanner.nextLine();
                     System.out.print("Documento do Cliente: ");
                     String documentoCliente = scanner.nextLine();
@@ -68,7 +75,7 @@ public class Main {
                     UUID uuidCliente = ValidacaoUUID.validadorUUID();
 
                     System.out.print("Novo Nome do Cliente: ");
-                    scanner.nextLine(); // Consumir a nova linha pendente
+                    scanner.nextLine();
                     String novoNomeCliente = scanner.nextLine();
                     System.out.print("Novo Documento do Cliente: ");
                     String novoDocumentoCliente = scanner.nextLine();
@@ -78,7 +85,7 @@ public class Main {
 
                 case "4":
                     System.out.print("Nome do Produto: ");
-                    scanner.nextLine(); // Consumir a nova linha pendente
+                    scanner.nextLine();
                     String nomeProduto = scanner.nextLine();
                     System.out.print("Preço do Produto: ");
 
@@ -106,7 +113,7 @@ public class Main {
                     UUID uuidProduto = ValidacaoUUID.validadorUUID();
 
                     System.out.print("Novo Nome do Produto: ");
-                    scanner.nextLine(); // Consumir a nova linha pendente
+                    scanner.nextLine();
                     String novoNomeProduto = scanner.nextLine();
                     System.out.print("Novo Preço do Produto: ");
                     while (!scanner.hasNextDouble()) {
@@ -117,6 +124,34 @@ public class Main {
                     scanner.nextLine();
 
                     gerenciamentoProduto.atualizarProduto(uuidProduto, novoNomeProduto, novoPrecoProduto);
+                    break;
+
+                case "7":
+                    //falta implementar
+                    break;
+
+                case "8":
+                    //falta implementar
+                    break;
+
+                case "9":
+                    //falta implementar
+                    break;
+
+                case "10":
+                    //falta implementar
+                    break;
+
+                case "11":
+                    //falta implementar
+                    break;
+
+                case "12":
+                    //falta implementar
+                    break;
+
+                case "13":
+                    //falta implementar
                     break;
 
                 default:
