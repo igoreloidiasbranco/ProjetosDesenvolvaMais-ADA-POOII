@@ -1,5 +1,15 @@
-# Ignore IntelliJ IDEA project files
-.idea/
+# Maven
+target/
+pom.xml.versionsBackup
 
-# Ignore compiled output directory
-out/
+# IDE
+*.idea/
+*.iml
+*.iws
+*.ipr
+
+# Other
+.classpath
+.project
+.settings/
+bin/

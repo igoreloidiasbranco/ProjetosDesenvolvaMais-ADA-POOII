@@ -1,4 +1,4 @@
-package Produto;
+package com.ada.Produto;
 
 import java.util.ArrayList;
 import java.util.List;

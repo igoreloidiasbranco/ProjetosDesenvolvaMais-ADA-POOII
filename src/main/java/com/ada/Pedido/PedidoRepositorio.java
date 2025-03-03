@@ -1,4 +1,4 @@
-package Pedido;
+package com.ada.Pedido;
 
 import java.util.List;
 import java.util.UUID;

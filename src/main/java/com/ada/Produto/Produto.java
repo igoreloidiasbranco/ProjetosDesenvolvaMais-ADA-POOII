@@ -1,4 +1,4 @@
-package Produto;
+package com.ada.Produto;
 
 import java.util.Objects;
 import java.util.UUID;
