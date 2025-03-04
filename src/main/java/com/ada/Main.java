@@ -3,6 +3,7 @@ package com.ada;
 import com.ada.Cliente.Cliente;
 import com.ada.Cliente.GerenciamentoCliente;
 import com.ada.Cliente.ClienteBuilder;
+import com.ada.Pedido.PedidoService;
 import com.ada.Produto.Produto;
 import com.ada.Produto.ProdutoBuilder;
 import com.ada.Produto.GerenciamentoProduto;
@@ -19,13 +20,17 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         GerenciamentoCliente gerenciamentoCliente = new GerenciamentoCliente();
         GerenciamentoProduto gerenciamentoProduto = new GerenciamentoProduto();
+
         String operacao;
-        String respostaUsuario;
+//        String respostaUsuario;
+        boolean pararOperacao = true;
+
 
         System.out.println("----------- Ada E-Commerce -------------\n");
 
-        do {
+        while (pararOperacao) {
             System.out.println("Operações do Sistema:");
+            System.out.println("(0) - Parar Sistema");
             System.out.println("(1) - Cadastrar Cliente");
             System.out.println("(2) - Listar Clientes");
             System.out.println("(3) - Atualizar Cliente");
@@ -53,6 +58,9 @@ public class Main {
             System.out.println();
 
             switch (operacao) {
+                case "0":
+                    pararOperacao = false;
+                    break;
                 case "1":
                     System.out.print("Nome do Cliente: ");
                     scanner.nextLine();
@@ -73,7 +81,7 @@ public class Main {
                     break;
 
                 case "3":
-                    System.out.print("Digite o ID do Cliente: ");
+                    System.out.print("Qual o ID do cliente que deseja atualizar? ");
                     UUID uuidCliente = ValidacaoUUID.validadorUUID();
 
                     System.out.print("Novo Nome do Cliente: ");
@@ -161,13 +169,14 @@ public class Main {
                     break;
             }
 
-            System.out.println("Deseja realizar uma nova operação?");
-            do {
-                System.out.print("Digite (sim) para continuar ou (não) para encerrar: ");
-                respostaUsuario = scanner.next().toLowerCase();
-                System.out.println();
-            } while (!(respostaUsuario.equals("sim") || (respostaUsuario.equals("não"))));
+//            System.out.println("Deseja realizar uma nova operação?");
+//            do {
+//                System.out.print("Digite (sim) para continuar ou (não) para encerrar: ");
+//                respostaUsuario = scanner.next().toLowerCase();
+//                System.out.println();
+//            } while (!(respostaUsuario.equals("sim") || (respostaUsuario.equals("não"))));
 
-        } while (respostaUsuario.equals("sim"));
+        }
+        //while (respostaUsuario.equals("sim"));
     }
 }
