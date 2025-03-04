@@ -1,10 +1,12 @@
-import Cliente.Cliente;
-import Cliente.GerenciamentoCliente;
-import Cliente.ClienteBuilder;
-import Produto.Produto;
-import Produto.ProdutoBuilder;
-import Produto.GerenciamentoProduto;
-import Utils.ValidacaoUUID;
+package com.ada;
+
+import com.ada.Cliente.Cliente;
+import com.ada.Cliente.GerenciamentoCliente;
+import com.ada.Cliente.ClienteBuilder;
+import com.ada.Produto.Produto;
+import com.ada.Produto.ProdutoBuilder;
+import com.ada.Produto.GerenciamentoProduto;
+import com.ada.Utils.ValidacaoUUID;
 
 import java.util.Locale;
 import java.util.Scanner;

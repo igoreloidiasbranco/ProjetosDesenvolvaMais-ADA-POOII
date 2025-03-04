@@ -1,4 +1,4 @@
-package Cliente;
+package com.ada.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package Pedido;
+package com.ada.Pedido;
 
-import Cliente.Cliente;
+import com.ada.Cliente.Cliente;
 
 import java.util.ArrayList;
 import java.util.Date;

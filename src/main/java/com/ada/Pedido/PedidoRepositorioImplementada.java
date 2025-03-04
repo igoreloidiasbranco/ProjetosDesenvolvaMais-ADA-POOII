@@ -1,4 +1,4 @@
-package Pedido;
+package com.ada.Pedido;
 
 import java.util.*;
 
