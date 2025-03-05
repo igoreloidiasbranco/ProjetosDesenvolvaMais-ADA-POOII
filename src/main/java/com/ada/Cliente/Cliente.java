@@ -34,13 +34,6 @@ public final class Cliente {
         return documento;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
 
     public void atualizarDados(String nome, String documento) {
         if (nome == null || nome.trim().isEmpty()) {
