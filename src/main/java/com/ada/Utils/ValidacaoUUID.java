@@ -8,7 +8,6 @@ public class ValidacaoUUID {
     static UUID uuid = null;
 
     public static UUID validadorUUID() {
-        System.out.print("Digite o Id: ");
         while (uuid == null) {
             String input = scanner.next();
             try {

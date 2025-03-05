@@ -1,14 +1,15 @@
 package com.ada.Pedido;
 
+import com.ada.Cliente.Cliente;
 import com.ada.Produto.Produto;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class PedidoService {
-    private PedidoRepositorio pedidoRepositorio;
 
-    public PedidoService(PedidoRepositorio pedidoRepositorio) {
-        this.pedidoRepositorio = pedidoRepositorio;
-    }
+    private final PedidoRepositorioImplementada pedidoRepositorio = new PedidoRepositorioImplementada();
 
     public void adicionarItem(UUID pedidoId, Produto produto, int quantidade, double precoVenda) {
         Pedido pedido = pedidoRepositorio.buscarPorId(pedidoId);
