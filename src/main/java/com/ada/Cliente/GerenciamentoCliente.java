@@ -42,8 +42,4 @@ public class GerenciamentoCliente {
             System.out.println("Cliente com ID " + idCliente + " não encontrado.");
         }
     }
-
-    public List<Cliente> getListaClientes() {
-        return new ArrayList<>(listaClientes); // Retorna uma cópia para evitar modificações diretas.
-    }
 }
