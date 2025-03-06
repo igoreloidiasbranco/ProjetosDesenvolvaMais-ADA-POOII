@@ -45,4 +45,14 @@ public class Pedido {
     public void setStatus(StatusPedido status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "ID do pedido: " + id +
+                ", " + cliente.toString() +
+                ", Lista de itens: " + itens +
+                ", status do pedido: " + status +
+                ", criado em: " + dataCriacao +
+                '}';
+    }
 }

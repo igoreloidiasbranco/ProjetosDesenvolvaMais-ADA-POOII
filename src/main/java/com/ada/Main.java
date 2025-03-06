@@ -7,6 +7,8 @@ import com.ada.Pedido.PedidoRepositorioImplementada;
 import com.ada.Produto.Produto;
 import com.ada.Produto.GerenciamentoProduto;
 import com.ada.Utils.ValidacaoUUID;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.UUID;
@@ -33,10 +35,13 @@ public class Main {
             System.out.println("(1) - Cadastrar Cliente");
             System.out.println("(2) - Listar Clientes");
             System.out.println("(3) - Atualizar Cliente");
+
             System.out.println("(4) - Cadastrar Produto");
             System.out.println("(5) - Listar Produtos");
             System.out.println("(6) - Atualizar Produto");
+
             System.out.println("(7) - Criar Pedido");
+
             System.out.println("(8) - Adicionar Item ao Pedido");
             System.out.println("(9) - Remover Item do Pedido");
             System.out.println("(10) - Alterar Quantidade do Item do Pedido");
@@ -136,6 +141,7 @@ public class Main {
                 case "7":
 
                     System.out.println("Digite o ID do cliente que deseja criar o pedido: ");
+                    gerenciamentoCliente.listarClientes();
                     UUID idCliente = validacaoUUID.validadorUUID();
                     try {
                         cliente = gerenciamentoCliente.buscarCliente(idCliente);
@@ -151,14 +157,25 @@ public class Main {
 
                 case "8":
                     //falta implementar
+                    //Adicionar Item ao Pedido
+
+                    System.out.println("Em qual pedido deseja adicionar um produto?");
+                    List<Pedido> pedidosList = pedidoRepositorioImplementada.listarTodos();
+                    for (Pedido pedidos : pedidosList) {
+                        System.out.println(pedidos.toString());
+                    }
+
+
                     break;
 
                 case "9":
                     //falta implementar
+                    //Remover Item do Pedido
                     break;
 
                 case "10":
                     //falta implementar
+                    //Alterar Quantidade do Item do Pedido
                     break;
 
                 case "11":
