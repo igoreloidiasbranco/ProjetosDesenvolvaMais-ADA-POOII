@@ -2,6 +2,7 @@ package com.ada;
 
 import com.ada.Cliente.Cliente;
 import com.ada.Cliente.GerenciamentoCliente;
+import com.ada.Pedido.Pedido;
 import com.ada.Produto.Produto;
 import com.ada.Produto.GerenciamentoProduto;
 import com.ada.Utils.ValidacaoUUID;
@@ -130,7 +131,16 @@ public class Main {
                     break;
 
                 case "7":
-                    //falta implementar
+
+                    System.out.println("Digite o ID do cliente que deseja criar o pedido: ");
+                    UUID idCliente = validacaoUUID.validadorUUID();
+                    try {
+                        cliente = gerenciamentoCliente.buscarCliente(idCliente);
+                        Pedido pedido = new Pedido(cliente);
+                        System.out.println("Pedido criado para o cliente " + cliente.getNome() + " com ID " + pedido.getId());
+                    } catch (Exception e) {
+                        System.out.println("Cliente com ID " + idCliente + " não encontrado.");
+                    }
                     break;
 
                 case "8":
