@@ -29,6 +29,20 @@ public class GerenciamentoCliente {
         }
     }
 
+    public Cliente buscarCliente(UUID idCliente) {
+        Optional<Cliente> clienteOpt = listaClientes.stream()
+                .filter(cliente -> cliente.getId().equals(idCliente))
+                .findFirst();
+
+        if (clienteOpt.isPresent()) {
+            Cliente cliente = clienteOpt.get();
+            System.out.println("Cliente com ID ." + idCliente + " encontrado.");
+            return cliente;
+        } else {
+            return null;
+        }
+    }
+
     public void atualizarCliente(UUID idCliente, String novoNome, String novoDocumento) {
         Optional<Cliente> clienteOpt = listaClientes.stream()
                 .filter(cliente -> cliente.getId().equals(idCliente))
