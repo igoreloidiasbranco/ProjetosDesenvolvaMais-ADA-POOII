@@ -1,10 +1,7 @@
 package com.ada.Pedido;
 
-import com.ada.Cliente.Cliente;
 import com.ada.Produto.Produto;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class PedidoService {

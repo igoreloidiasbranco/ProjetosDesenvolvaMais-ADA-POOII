@@ -2,6 +2,8 @@ package com.ada;
 
 import com.ada.Cliente.Cliente;
 import com.ada.Cliente.GerenciamentoCliente;
+import com.ada.Pedido.Pedido;
+import com.ada.Pedido.PedidoRepositorioImplementada;
 import com.ada.Produto.Produto;
 import com.ada.Produto.GerenciamentoProduto;
 import com.ada.Utils.ValidacaoUUID;
@@ -17,6 +19,8 @@ public class Main {
         GerenciamentoCliente gerenciamentoCliente = new GerenciamentoCliente();
         GerenciamentoProduto gerenciamentoProduto = new GerenciamentoProduto();
         ValidacaoUUID validacaoUUID = new ValidacaoUUID();
+        Pedido pedido = new Pedido(null);
+        PedidoRepositorioImplementada pedidoRepositorioImplementada = new PedidoRepositorioImplementada();
         String operacao;
         boolean pararOperacao = true;
 
@@ -130,7 +134,19 @@ public class Main {
                     break;
 
                 case "7":
-                    //falta implementar
+
+                    System.out.println("Digite o ID do cliente que deseja criar o pedido: ");
+                    UUID idCliente = validacaoUUID.validadorUUID();
+                    try {
+                        cliente = gerenciamentoCliente.buscarCliente(idCliente);
+                        pedido = new Pedido(cliente);
+                        System.out.println("Pedido criado com ID: " + pedido.getId() + " para o cliente " + cliente.getNome());
+                    } catch (Exception e) {
+                        System.out.println("Cliente com ID " + idCliente + " não encontrado.");
+                    }
+
+                    pedidoRepositorioImplementada.salvar(pedido);
+
                     break;
 
                 case "8":
