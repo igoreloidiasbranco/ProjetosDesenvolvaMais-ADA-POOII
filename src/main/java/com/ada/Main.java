@@ -2,13 +2,9 @@ package com.ada;
 
 import com.ada.Cliente.Cliente;
 import com.ada.Cliente.GerenciamentoCliente;
-import com.ada.Cliente.ClienteBuilder;
-import com.ada.Pedido.PedidoService;
 import com.ada.Produto.Produto;
-import com.ada.Produto.ProdutoBuilder;
 import com.ada.Produto.GerenciamentoProduto;
 import com.ada.Utils.ValidacaoUUID;
-
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.UUID;
@@ -20,9 +16,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         GerenciamentoCliente gerenciamentoCliente = new GerenciamentoCliente();
         GerenciamentoProduto gerenciamentoProduto = new GerenciamentoProduto();
-
+        ValidacaoUUID validacaoUUID = new ValidacaoUUID();
         String operacao;
-//        String respostaUsuario;
         boolean pararOperacao = true;
 
 
@@ -68,10 +63,7 @@ public class Main {
                     System.out.print("Documento do Cliente: ");
                     String documentoCliente = scanner.nextLine();
 
-                    Cliente cliente = new ClienteBuilder()
-                            .comNome(nomeCliente)
-                            .comDocumento(documentoCliente)
-                            .construir();
+                    Cliente cliente = new Cliente(nomeCliente, documentoCliente);
 
                     gerenciamentoCliente.cadastrarCliente(cliente);
                     break;
@@ -82,7 +74,8 @@ public class Main {
 
                 case "3":
                     System.out.print("Qual o ID do cliente que deseja atualizar? ");
-                    UUID uuidCliente = ValidacaoUUID.validadorUUID();
+
+                    UUID uuidCliente = validacaoUUID.validadorUUID();
 
                     System.out.print("Novo Nome do Cliente: ");
                     scanner.nextLine();
@@ -91,6 +84,7 @@ public class Main {
                     String novoDocumentoCliente = scanner.nextLine();
 
                     gerenciamentoCliente.atualizarCliente(uuidCliente, novoNomeCliente, novoDocumentoCliente);
+
                     break;
 
                 case "4":
@@ -106,10 +100,7 @@ public class Main {
                     double precoProduto = scanner.nextDouble();
                     scanner.nextLine();
 
-                    Produto produto = new ProdutoBuilder()
-                            .comNome(nomeProduto)
-                            .comPreco(precoProduto)
-                            .construir();
+                    Produto produto = new Produto(nomeProduto, precoProduto);
 
                     gerenciamentoProduto.cadastrarProduto(produto);
                     break;
@@ -120,7 +111,9 @@ public class Main {
 
                 case "6":
 
-                    UUID uuidProduto = ValidacaoUUID.validadorUUID();
+                    System.out.print("Qual o ID do produto que deseja atualizar? ");
+
+                    UUID uuidProduto = validacaoUUID.validadorUUID();
 
                     System.out.print("Novo Nome do Produto: ");
                     scanner.nextLine();
@@ -168,15 +161,6 @@ public class Main {
                     System.out.println("Digite uma operação válida");
                     break;
             }
-
-//            System.out.println("Deseja realizar uma nova operação?");
-//            do {
-//                System.out.print("Digite (sim) para continuar ou (não) para encerrar: ");
-//                respostaUsuario = scanner.next().toLowerCase();
-//                System.out.println();
-//            } while (!(respostaUsuario.equals("sim") || (respostaUsuario.equals("não"))));
-
         }
-        //while (respostaUsuario.equals("sim"));
     }
 }

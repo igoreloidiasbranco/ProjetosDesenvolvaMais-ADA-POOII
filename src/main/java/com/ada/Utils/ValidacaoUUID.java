@@ -4,12 +4,14 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class ValidacaoUUID {
-    static Scanner scanner = new Scanner(System.in);
-    static UUID uuid = null;
+     Scanner scanner = new Scanner(System.in);
+     UUID uuid;
 
-    public static UUID validadorUUID() {
+    public UUID validadorUUID() {
+        this.uuid = null;
         while (uuid == null) {
             String input = scanner.next();
+            System.out.println();
             try {
                 uuid = UUID.fromString(input);
             } catch (IllegalArgumentException e) {
