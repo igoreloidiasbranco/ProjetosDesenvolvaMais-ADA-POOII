@@ -3,7 +3,6 @@ package com.ada;
 import com.ada.Cliente.Cliente;
 import com.ada.Cliente.GerenciamentoCliente;
 import com.ada.Pedido.Pedido;
-import com.ada.Pedido.PedidoRepositorioImplementada;
 import com.ada.Pedido.PedidoService;
 import com.ada.Produto.Produto;
 import com.ada.Produto.GerenciamentoProduto;
@@ -157,12 +156,10 @@ public class Main {
                     break;
 
                 case "8":
-                    //falta implementar
-                    //Adicionar Item ao Pedido
                     System.out.println("Digite o ID do pedido que deseja adicionar um produto?");
-                    List<Pedido> pedidosList = pedidoService.pedidoRepositorio().listarTodos();
+                    List<Pedido> pedidosAddList = pedidoService.pedidoRepositorio().listarTodos();
                     System.out.println("Lista de pedidos: ");
-                    for (Pedido item : pedidosList) {
+                    for (Pedido item : pedidosAddList) {
                         System.out.println(item.toString());
                     }
 
@@ -198,27 +195,113 @@ public class Main {
                     break;
 
                 case "9":
-                    //falta implementar
-                    //Remover Item do Pedido
+                    System.out.println("Digite o ID do pedido que deseja remover um produto: ");
+                    List<Pedido> pedidosRemoveList = pedidoService.pedidoRepositorio().listarTodos();
+                    System.out.println("Lista de pedidos: ");
+                    for (Pedido item : pedidosRemoveList) {
+                        System.out.println(item.toString());
+                    }
+
+                    UUID idPedidoRemove = validacaoUUID.validadorUUID();
+                    try {
+                        pedido = pedidoService.pedidoRepositorio().buscarPorId(idPedidoRemove);
+                        System.out.println("Pedido encontrado!");
+                    } catch (Exception e) {
+                        System.out.println("Pedido com ID " + idPedidoRemove + " não encontrado.");
+                    }
+                    System.out.println("Digite o ID do produto que deseja remover: ");
+                    UUID idProdutoRemove = validacaoUUID.validadorUUID();
+                    pedidoService.removerItem(idPedidoRemove, idProdutoRemove);
+                    System.out.println("Produto removido");
                     break;
 
                 case "10":
-                    //falta implementar
-                    //Alterar Quantidade do Item do Pedido
+                    System.out.println("Digite o ID do pedido que deseja alterar a quantidade de um produto: ");
+                    List<Pedido> pedidosQuantityList = pedidoService.pedidoRepositorio().listarTodos();
+                    System.out.println("Lista de pedidos: ");
+                    for (Pedido item : pedidosQuantityList) {
+                        System.out.println(item.toString());
+                    }
+
+                    UUID idPedidoQuantity = validacaoUUID.validadorUUID();
+                    try {
+                        pedido = pedidoService.pedidoRepositorio().buscarPorId(idPedidoQuantity);
+                        System.out.println("Pedido encontrado!");
+                    } catch (Exception e) {
+                        System.out.println("Pedido com ID " + idPedidoQuantity + " não encontrado.");
+                    }
+
+                    System.out.println("Digite o ID do produto que deseja alterar a quantidade: ");
+                    UUID idProdutoQuantity = validacaoUUID.validadorUUID();
+
+                    System.out.println("Digite a nova quantidade do produto: ");
+                    int newQuantity = scanner.nextInt();
+                    pedidoService.alterarQuantidade(idPedidoQuantity, idProdutoQuantity, newQuantity);
+
+                    System.out.println("Produto removido");
                     break;
 
+
                 case "11":
-                    //falta implementar
+                    System.out.println("Digite o ID do pedido que deseja finalizar: ");
+                    List<Pedido> pedidosFinishList = pedidoService.pedidoRepositorio().listarTodos();
+                    System.out.println("Lista de pedidos: ");
+                    for (Pedido item : pedidosFinishList) {
+                        System.out.println(item.toString());
+                    }
+
+                    UUID idPedidoFinish = validacaoUUID.validadorUUID();
+                    try {
+                        pedido = pedidoService.pedidoRepositorio().buscarPorId(idPedidoFinish);
+                        System.out.println("Pedido encontrado!");
+                    } catch (Exception e) {
+                        System.out.println("Pedido com ID " + idPedidoFinish + " não encontrado.");
+                    }
+
+                    pedidoService.finalizarPedido(idPedidoFinish);
+                    System.out.println("Pedido finalizado");
+
                     break;
 
                 case "12":
-                    //falta implementar
+                    System.out.println("Digite o ID do pedido que deseja pagar: ");
+                    List<Pedido> pedidoPayList = pedidoService.pedidoRepositorio().listarTodos();
+                    System.out.println("Lista de pedidos: ");
+                    for (Pedido item : pedidoPayList) {
+                        System.out.println(item.toString());
+                    }
+
+                    UUID idPedidoPay = validacaoUUID.validadorUUID();
+                    try {
+                        pedido = pedidoService.pedidoRepositorio().buscarPorId(idPedidoPay);
+                        System.out.println("Pedido encontrado!");
+                    } catch (Exception e) {
+                        System.out.println("Pedido com ID " + idPedidoPay + " não encontrado.");
+                    }
+
+                    pedidoService.pagarPedido(idPedidoPay);
+                    System.out.println("Pedido pago");
                     break;
 
                 case "13":
-                    //falta implementar
-                    break;
+                    System.out.println("Digite o ID do pedido que deseja entregar: ");
+                    List<Pedido> pedidoDeliveryList = pedidoService.pedidoRepositorio().listarTodos();
+                    System.out.println("Lista de pedidos: ");
+                    for (Pedido item : pedidoDeliveryList) {
+                        System.out.println(item.toString());
+                    }
 
+                    UUID idPedidoDelivery = validacaoUUID.validadorUUID();
+                    try {
+                        pedido = pedidoService.pedidoRepositorio().buscarPorId(idPedidoDelivery);
+                        System.out.println("Pedido encontrado!");
+                    } catch (Exception e) {
+                        System.out.println("Pedido com ID " + idPedidoDelivery + " não encontrado.");
+                    }
+
+                    pedidoService.entregarPedido(idPedidoDelivery);
+                    System.out.println("Pedido entregue");
+                    break;
                 default:
                     System.out.println("Digite uma operação válida");
                     break;

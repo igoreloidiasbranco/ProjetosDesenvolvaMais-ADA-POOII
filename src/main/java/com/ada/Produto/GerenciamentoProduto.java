@@ -1,7 +1,5 @@
 package com.ada.Produto;
 
-import com.ada.Cliente.Cliente;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
