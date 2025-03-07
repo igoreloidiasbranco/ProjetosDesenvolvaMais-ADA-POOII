@@ -1,5 +1,7 @@
 package com.ada.Produto;
 
+import com.ada.Cliente.Cliente;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,6 +29,21 @@ public class GerenciamentoProduto {
             System.out.println("Nome: " + produto.getNome());
             System.out.println("Preço: " + produto.getPreco());
             System.out.println("------------------------");
+        }
+    }
+
+
+    public Produto buscarProduto(UUID idProduto) {
+        Optional<Produto> produtoOpt = listaProdutos.stream()
+                .filter(produto -> produto.getId().equals(idProduto))
+                .findFirst();
+
+        if (produtoOpt.isPresent()) {
+            Produto produto = produtoOpt.get();
+            System.out.println("Produto com Id " + idProduto + " encontrado.");
+            return produto;
+        } else {
+            return null;
         }
     }
 

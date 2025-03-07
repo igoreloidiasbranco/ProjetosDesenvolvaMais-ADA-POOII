@@ -22,11 +22,21 @@ public class ItemPedido {
         return this.quantidade;
     }
 
+
     public double getPrecoVenda() {
         return this.precoVenda;
     }
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade; }
+
+    @Override
+    public String toString() {
+        return "[" +
+                "produto: " +  produto.toString() +
+                ", quantidade: " + quantidade +
+                ", preco de venda: " + precoVenda +
+                ']';
+    }
 }
 
