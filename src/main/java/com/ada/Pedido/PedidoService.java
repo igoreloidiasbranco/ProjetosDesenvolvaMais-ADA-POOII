@@ -8,6 +8,10 @@ public class PedidoService {
 
     private final PedidoRepositorioImplementada pedidoRepositorio = new PedidoRepositorioImplementada();
 
+    public PedidoRepositorio pedidoRepositorio() {
+        return pedidoRepositorio;
+    }
+
     public void adicionarItem(UUID pedidoId, Produto produto, int quantidade, double precoVenda) {
         Pedido pedido = pedidoRepositorio.buscarPorId(pedidoId);
         if (pedido != null && pedido.getStatus() == StatusPedido.ABERTO) {
