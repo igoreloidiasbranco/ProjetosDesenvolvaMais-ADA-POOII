@@ -3,7 +3,6 @@ package com.ada;
 import com.ada.Cliente.Cliente;
 import com.ada.Cliente.GerenciamentoCliente;
 import com.ada.Pedido.Pedido;
-import com.ada.Pedido.PedidoRepositorioImplementada;
 import com.ada.Pedido.PedidoService;
 import com.ada.Produto.Produto;
 import com.ada.Produto.GerenciamentoProduto;
